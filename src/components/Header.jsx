@@ -1,5 +1,4 @@
 import { ShoppingCart } from "lucide-react";
-import logo from "../assets/logo.png";
 
 function Header() {
   return (
