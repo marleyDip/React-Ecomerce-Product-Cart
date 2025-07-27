@@ -1,6 +1,6 @@
 import { ShoppingCart } from "lucide-react";
 
-function Header() {
+function Header({ onToggleCard }) {
   return (
     <div className="bg-white/80 backdrop-blur-md shadow-lg sticky border-b border-gray-200/50 top-0 z-40 py-2">
       <div className="max-w-7xl  mx-auto px-4 sm:px-6 lg:px-8">
@@ -21,15 +21,16 @@ function Header() {
             />
           </div>
 
-          <div>
-            <button className="relative p-2 bg-gray-300 text-gray-700 rounded-full hover:shadow-lg hover:scale-105 transform transition-all duration-300 cursor-pointer">
-              <ShoppingCart className="w-6 h-6" />
+          <button
+            className="relative p-2 bg-gray-300 text-gray-700 rounded-full hover:shadow-lg hover:scale-105 transform transition-all duration-300 cursor-pointer"
+            onClick={onToggleCard}
+          >
+            <ShoppingCart className="w-6 h-6" />
 
-              <span className="absolute -top-4 right-2 bg-violet-500 text-white text-xs font-semibold rounded-full w-6 h-6 grid place-items-center ">
-                1
-              </span>
-            </button>
-          </div>
+            <span className="absolute -top-4 right-2 bg-violet-500 text-white text-xs font-semibold rounded-full w-6 h-6 grid place-items-center ">
+              1
+            </span>
+          </button>
         </div>
       </div>
     </div>

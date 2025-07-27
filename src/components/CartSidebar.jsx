@@ -1,17 +1,20 @@
 import { CreditCard, ShoppingBag, X } from "lucide-react";
-import React from "react";
 
-function CartSidebar() {
+function CartSidebar({ isOpen, onClose }) {
   return (
     <>
       {/* Backdrop */}
       <div
-        className={`fixed inset-0 bg-black/50 backdrop-blur-sm z-50 transition-all duration-300`}
+        className={`fixed inset-0 bg-black/50 backdrop-blur-sm z-50 transition-all duration-300 ${
+          isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
+        }`}
       />
 
       {/* sidebar */}
       <div
-        className={`fixed right-0 top-0 h-full w-full max-w-md bg-white shadow-2xl z-50 transform  transition-transform duration-300 ease-in-out`}
+        className={`fixed right-0 top-0 h-full w-full max-w-md bg-white shadow-2xl z-50 transform  transition-transform duration-300 ease-in-out ${
+          isOpen ? "translate-x-0" : "translate-x-full"
+        }`}
       >
         {/* header */}
         <div className="flex items-center justify-center p-6 border-b border-gray-200">
@@ -20,7 +23,10 @@ function CartSidebar() {
             <span>Shopping Cart</span>
           </h2>
 
-          <button className="p-2 hover:bg-gray-100 rounded-full transition-colors duration-200 cursor-pointer">
+          <button
+            className="p-2 hover:bg-gray-100 rounded-full transition-colors duration-200 cursor-pointer"
+            onClick={onClose}
+          >
             <X className="w-6 h-6" />
           </button>
         </div>
