@@ -8,7 +8,7 @@ function ProductCard({ product }) {
   const handleAddToCart = () => {
     dispatch(addToCart(product));
 
-    console.log("product added to cart:", product);
+    //console.log("product added to cart:", product);
   };
 
   const readerStart = (rating) => {
