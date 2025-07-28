@@ -1,5 +1,6 @@
 import { ShoppingCart } from "lucide-react";
 import { useSelector } from "react-redux";
+import logo from "../assets/me1.png";
 
 function Header({ onToggleCard }) {
   /* if use { } => then must use return
@@ -18,7 +19,7 @@ function Header({ onToggleCard }) {
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center gap-1">
             <img
-              src="/public/me1.png"
+              src={logo}
               alt="logo"
               className="md:h-16 h-10 cursor-pointer"
             />
