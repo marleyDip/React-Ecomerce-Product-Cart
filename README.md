@@ -4,7 +4,11 @@
 
 ### Responsive E-commerce Product Cart using React JS, Tailwind CSS, and Redux-Toolkit
 
-<img width="1893" height="927" alt="image" src="https://github.com/user-attachments/assets/c8b9632a-ba52-4187-8bad-beb5eb0af0f3" />
+<img width="1893" height="892" alt="image" src="https://github.com/user-attachments/assets/c8b9632a-ba52-4187-8bad-beb5eb0af0f3" />
+
+<img width="1893" height="892" alt="image" src="https://github.com/user-attachments/assets/8bd22669-7ccb-43c3-a6a0-c8f3384d6291" />
+
+<img width="1893" height="892" alt="image" src="https://github.com/user-attachments/assets/9caf15c2-7cb5-4742-bb14-03cb812781f3" />
 
 ## Features
  - Add product to cart.
