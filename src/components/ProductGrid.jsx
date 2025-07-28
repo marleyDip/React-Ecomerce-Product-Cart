@@ -1,6 +1,8 @@
 import ProductCard from "./ProductCard";
+import { products } from "../data/products.js";
 
 function ProductGrid() {
+  console.log(products);
   return (
     <div className="py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -16,7 +18,9 @@ function ProductGrid() {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          <ProductCard />
+          {products.map((product) => {
+            return <ProductCard key={product.id} product={product} />;
+          })}
         </div>
       </div>
     </div>
