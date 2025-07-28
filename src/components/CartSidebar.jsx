@@ -1,6 +1,17 @@
 import { CreditCard, ShoppingBag, X } from "lucide-react";
+import { useDispatch, useSelector } from "react-redux";
 
 function CartSidebar({ isOpen, onClose }) {
+  const dispatch = useDispatch();
+  const items = useSelector((state) => state.cart.items);
+
+  const totalItems = items.reduce((total, item) => total + item.quantity, 0);
+
+  const totalPrice = items.reduce(
+    (total, item) => total + item.quantity * item.price,
+    0
+  );
+
   return (
     <>
       {/* Backdrop */}
@@ -17,14 +28,14 @@ function CartSidebar({ isOpen, onClose }) {
         }`}
       >
         {/* header */}
-        <div className="flex items-center justify-center p-6 border-b border-gray-200">
+        <div className="relative flex items-center justify-center p-6 border-b border-gray-200">
           <h2 className="text-xl text-gray-900 font-bold flex items-center space-x-2">
-            <ShoppingBag className="w-6            h-6" />
+            <ShoppingBag className="w-6 h-6" />
             <span>Shopping Cart</span>
           </h2>
 
           <button
-            className="p-2 hover:bg-gray-100 rounded-full transition-colors duration-200 cursor-pointer"
+            className="absolute top-4 right-4 p-2 hover:bg-gray-100 rounded-full transition-colors duration-200 cursor-pointer"
             onClick={onClose}
           >
             <X className="w-6 h-6" />

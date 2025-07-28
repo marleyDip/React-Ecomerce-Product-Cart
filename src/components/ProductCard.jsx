@@ -1,15 +1,24 @@
 import { Star } from "lucide-react";
-import React from "react";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../store/cartSlice";
 
 function ProductCard({ product }) {
+  const dispatch = useDispatch();
+
+  const handleAddToCart = () => {
+    dispatch(addToCart(product));
+
+    console.log("product added to cart:", product);
+  };
+
   const readerStart = (rating) => {
     return Array.from({ length: 5 }, (_, i) => (
       <Star
         key={i}
         className={`w-4 h-4 ${
           i < Math.floor(rating)
-            ? "text-yellow-400 fill-amber-400"
-            : "fill-gray-300 text-gray-300"
+            ? "text-yellow-400 fill-yellow-400"
+            : "text-gray-300"
         }`}
       />
     ));
@@ -43,7 +52,9 @@ function ProductCard({ product }) {
         <div className="flex items-center mb-4">
           <div className="flex items-center">{readerStart(product.rating)}</div>
 
-          <span>{product.reviews}</span>
+          <span className="font-medium ml-1">
+            {product.rating} ({product.reviews} reviews)
+          </span>
         </div>
 
         <div className="flex items-center justify-between">
@@ -51,7 +62,10 @@ function ProductCard({ product }) {
             $ {product.price}
           </span>
 
-          <button className="group/btn flex items-center space-x-2 cursor-pointer bg-gray-200 text-gray-900 px-4 py-2 rounded-lg hover:shadow-lg transform hover:scale-105 transition-all duration-200">
+          <button
+            className="group/btn flex items-center space-x-2 cursor-pointer bg-gray-200 text-gray-900 px-4 py-2 rounded-lg hover:shadow-lg transform hover:scale-105 transition-all duration-200"
+            onClick={handleAddToCart}
+          >
             <span className="font-medium">Add to Cart</span>
           </button>
         </div>
