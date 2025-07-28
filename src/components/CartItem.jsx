@@ -1,6 +1,7 @@
 import { Minus, Plus, Trash } from "lucide-react";
 import { useDispatch } from "react-redux";
 import { removeFromCart, updateQuantity } from "../store/cartSlice";
+import { toast } from "react-toastify";
 
 function CartItem({ item }) {
   const dispatch = useDispatch();
@@ -21,7 +22,11 @@ function CartItem({ item }) {
 
   const handleQtyChange = (newQty) => {
     if (newQty <= 0) {
-      alert("Please delete the the product");
+      //alert("Please delete the the product");
+
+      toast.warning("Please delete the the product!", {
+        position: "top-center",
+      });
     } else {
       dispatch(updateQuantity({ id: item.id, quantity: newQty }));
     }
@@ -29,6 +34,10 @@ function CartItem({ item }) {
 
   const handleRemoveItem = () => {
     dispatch(removeFromCart(item.id));
+
+    toast.error("Delete item successfully!", {
+      position: "top-right",
+    });
   };
 
   return (

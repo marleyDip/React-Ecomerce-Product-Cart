@@ -109,3 +109,4 @@ function CartSidebar({ isOpen, onClose }) {
 }
 
 export default CartSidebar;
+

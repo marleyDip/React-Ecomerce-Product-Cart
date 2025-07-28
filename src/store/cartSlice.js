@@ -13,11 +13,21 @@ const cartSlice = createSlice({
         (item) => item.id === action.payload.id
       );
 
-      if (existingItem) {
-        alert("Already Added Product to the Cart");
-      } else {
+      if (!existingItem) {
         state.items.push({ ...action.payload, quantity: 1 });
       }
+
+      // important note = Reducers must remain pure ... as short as possible
+
+      //   if (existingItem) {
+      //alert("Already Added Product to the Cart");
+
+      //     toast.info("Already Added Product to the Cart", {
+      //       position: "top-left",
+      //     });
+      //   } else {
+      //     state.items.push({ ...action.payload, quantity: 1 });
+      //   }
 
       //   if (!existingItem) {
       //     const qty = action.payload.quantity || 1;

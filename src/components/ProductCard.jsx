@@ -1,12 +1,27 @@
 import { Star } from "lucide-react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../store/cartSlice";
+import { toast } from "react-toastify";
 
 function ProductCard({ product }) {
   const dispatch = useDispatch();
 
+  const cart = useSelector((state) => state.cart.items);
+
   const handleAddToCart = () => {
-    dispatch(addToCart(product));
+    const alreadyInCart = cart.find((item) => item.id === product.id);
+
+    if (alreadyInCart) {
+      toast.info("Already Added Product to the Cart", {
+        position: "top-center",
+      });
+    } else {
+      dispatch(addToCart(product));
+
+      toast.success("Product Added to the Cart", {
+        position: "top-left",
+      });
+    }
 
     //console.log("product added to cart:", product);
   };
