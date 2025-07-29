@@ -19,11 +19,11 @@
 ## Installation
 1. Clone the repository:
     ```bash
-    git clone https://github.com/marleyDip/React-Ecomerce-Product-Cart.git
+    git clone https://github.com/marleyDip/React-Ecomerce-Product-Cart-ReduxJs-Toolkit-Tailwind-CSS.git
     ```
 2. Navigate to the project directory:
     ```bash
-    cd React-Ecommerce-Product-Cart
+    cd React-Ecomerce-Product-Cart-ReduxJs-Toolkit-Tailwind-CSS
     ```
 3. Install the dependencies using `pnpm`:
     ```bash
